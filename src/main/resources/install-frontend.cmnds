@@ -2,7 +2,7 @@ https://github.com/coreybutler/nvm-windows/releases
 nvm ls-remote
 nvm install --lts
 nvm ls
-
+cd
 npm install -g @angular/cli
 ng add @ng-bootstrap/ng-bootstrap
 ng new app-videoclub
