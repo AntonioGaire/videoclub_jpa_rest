@@ -4,14 +4,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Categoria } from './categoria';
+import { Pelicula } from './pelicula';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class PeliculaService {
 
-  private apiURL = "http://localhost:8080/categorias";
+  private apiURL = "http://localhost:8080/peliculas";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,36 +21,37 @@ export class CategoriaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<Categoria[]> {
-    return this.httpClient.get<Categoria[]>(this.apiURL)
+  getAll(): Observable<Pelicula[]> {
+    this.httpClient.get<Pelicula[]>(this.apiURL).subscribe(res => console.log("R", res))
+    return this.httpClient.get<Pelicula[]>(this.apiURL)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  create(categoria: Categoria): Observable<Categoria> {
-    return this.httpClient.post<Categoria>(this.apiURL, JSON.stringify(categoria), this.httpOptions)
+  create(pelicula: Pelicula): Observable<Pelicula> {
+    return this.httpClient.post<Pelicula>(this.apiURL, JSON.stringify(pelicula), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  find(id: number): Observable<Categoria> {
-    return this.httpClient.get<Categoria>(this.apiURL + id)
+  find(id: number): Observable<Pelicula> {
+    return this.httpClient.get<Pelicula>(this.apiURL + id)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
-  update(id: number, categoria: Categoria): Observable<Categoria> {
-    return this.httpClient.put<Categoria>(this.apiURL + id, JSON.stringify(categoria), this.httpOptions)
+  update(id: number, pelicula: Pelicula): Observable<Pelicula> {
+    return this.httpClient.put<Pelicula>(this.apiURL + id, JSON.stringify(pelicula), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
   }
 
   delete(id: number){
-    return this.httpClient.delete<Categoria>(this.apiURL +'/'+ id, this.httpOptions)
+    return this.httpClient.delete<Pelicula>(this.apiURL +'/'+ id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )

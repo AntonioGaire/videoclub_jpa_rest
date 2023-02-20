@@ -34,11 +34,11 @@ public class Pelicula {
     @JsonFormat(pattern = "yyyy",  shape = JsonFormat.Shape.STRING)
     private Date anyoLanzamiento;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_idioma", nullable = false)
     private Idioma idioma;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_idioma_original")
     private Idioma idiomaOriginal;
 
