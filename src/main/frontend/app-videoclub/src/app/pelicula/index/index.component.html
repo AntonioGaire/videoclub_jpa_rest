@@ -8,16 +8,16 @@
     </div>
   </div>
   <div class="row pt-5">
-    <div class="col-md-3 border-bottom"><h5>Id</h5></div>
+    <div class="col-md-1 border-bottom"><h5>Id</h5></div>
     <div class="col-md-2 border-bottom"><h5>Titulo</h5></div>
-    <div class="col-md-2 border-bottom"><h5>Descripción</h5></div>
+    <div class="col-md-4 border-bottom"><h5>Descripción</h5></div>
     <div class="col-md-2 border-bottom"><h5>Última actualización</h5></div>
     <div class="col-md-3 border-bottom d-md-flex justify-content-md-center"><h5>Acción</h5></div>
   </div>
   <div *ngFor="let pelicula of peliculas" class="row top5 align-items-center">
-    <div class="col-md-3">{{ pelicula.idPelicula }}</div>
+    <div class="col-md-1">{{ pelicula.idPelicula }}</div>
     <div class="col-md-2">{{ pelicula.titulo }}</div>
-    <div class="col-md-2">{{ pelicula.descripcion }}</div>
+    <div class="col-md-4">{{ pelicula.descripcion }}</div>
     <div class="col-md-2">{{ pelicula.ultimaActualizacion}}</div>
 
     <div class="col-md-3 d-md-flex justify-content-md-center">
